@@ -35,4 +35,6 @@ public class JumpToTheNewWindow {
         System.out.println("After switch = " +driver.getCurrentUrl());
         driver.close();
     }
+
+
 }
