@@ -35,7 +35,13 @@ public class BasicNavigation {
         }
         //comeback google
         driver.navigate().back();
+        Thread.sleep(3000);
         verifyEquals(driver.getTitle(),"Google");
+        //move forward in browser history
+        //again going to amazon
+        driver.navigate().forward();
+        System.out.println("Title " + driver.getTitle());
+        //driver.getTitle() - returns title of the page that is currently opened
 
 
         //MUST BE AT THE END
