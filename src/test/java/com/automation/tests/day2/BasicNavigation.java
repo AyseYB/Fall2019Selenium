@@ -33,6 +33,9 @@ public class BasicNavigation {
         }else{
             System.out.println("TEST FAILED");
         }
+        //comeback google
+        driver.navigate().back();
+        verifyEquals(driver.getTitle(),"Google");
 
 
         //MUST BE AT THE END
