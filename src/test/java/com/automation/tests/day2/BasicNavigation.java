@@ -27,12 +27,14 @@ public class BasicNavigation {
             System.out.println("TEST FAILED");
         }
 
+
         driver.navigate().to("http://amazon.com");
         if(driver.getTitle().toLowerCase().contains("amazon")){
             System.out.println("TEST PASSED");
         }else{
             System.out.println("TEST FAILED");
         }
+
         //comeback google
         driver.navigate().back();
         Thread.sleep(3000);
@@ -61,4 +63,5 @@ public class BasicNavigation {
             System.out.println("TEST FAILED");
         }
     }
+
 }
