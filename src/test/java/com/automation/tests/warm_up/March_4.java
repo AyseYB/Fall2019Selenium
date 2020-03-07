@@ -10,9 +10,9 @@ import org.openqa.selenium.chrome.ChromeDriver;
 
 public class March_4 {
  static WebDriver driver;
-    public static void main(String[] args) {
-        ebayTest();
-        amazonTest();
+    public static void main(String[] args) throws Exception {
+       // ebayTest();
+      //  amazonTest();
         vikiTest();
 
     }
@@ -32,9 +32,6 @@ public class March_4 {
         System.out.println(result.getText());
 
         driver.quit();
-
-
-
     }
 
     //go to amazon
@@ -42,9 +39,43 @@ public class March_4 {
 //click on search button
 //verify title contains search term
     public static void amazonTest(){
-
+        driver = DriverFactory.createDriver("Chrome");
+        driver.get("http://amazon.com");
+        driver.findElement(By.id("twotabsearchtextbox")).sendKeys("java book", Keys.ENTER);
+        String title = driver.getTitle();
+        if(title.contains("java book")){
+            System.out.println("test passed");
+        }else {
+            System.out.println("test failed");
+        }
+        driver.quit();
     }
-    public static void vikiTest(){
+    //Go to wikipedia.org
+//enter search term `selenium webdriver`
+//click on search button
+//click on search result `Selenium (software)`
+//verify url ends with `Selenium_(software)
+    public static void vikiTest() throws Exception{
+        driver =  DriverFactory.createDriver("Chrome");
+        //Go to wikipedia.org
+        driver.get("http://wikipedia.com");
+        //enter search term `selenium webdriver`,//click on search result `Selenium (software)`
+        driver.findElement(By.id("searchInput")).sendKeys("selenium webdriver", Keys.ENTER);
+
+        driver.findElement(By.partialLinkText("Selenium (software)")).click();
+
+        Thread.sleep(2000);
+        String link = driver.getCurrentUrl(); // to get link as a string
+
+        //verify url ends with `Selenium_(software)
+        if(link.endsWith("Selenium_(software)")){
+            System.out.println("test passed");
+        }else {
+            System.out.println("test failed");
+        }
+        driver.quit();
+
+
 
     }
 
