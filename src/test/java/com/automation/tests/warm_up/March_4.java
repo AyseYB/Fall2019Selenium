@@ -12,7 +12,7 @@ public class March_4 {
  static WebDriver driver;
     public static void main(String[] args) throws Exception {
        // ebayTest();
-      //  amazonTest();
+      // amazonTest();
         vikiTest();
 
     }
@@ -20,18 +20,32 @@ public class March_4 {
 //enter search term
 //click on search button
 //print number of results
-    public static void ebayTest(){
+    public static void ebayTest() throws Exception{
 //        WebDriverManager.chromedriver().setup();
 //        WebDriver driver = new ChromeDriver();
-        driver = DriverFactory.createDriver("chrome");
+//        driver = DriverFactory.createDriver("chrome");
+//        driver.get("http://ebay.com");
+//        driver.findElement(By.id("gh-ac")).sendKeys("java book");
+//        driver.findElement(By.id("gh-btn")).click();
+//        WebElement result = driver.findElement(By.tagName("h1"));
+//     //   System.out.println(result.getText().split(" ")[0]);
+//        System.out.println(result.getText());
+//
+//        driver.quit();
+
+        WebDriverManager.chromedriver().version("79").setup();
+        WebDriver driver = new ChromeDriver();
         driver.get("http://ebay.com");
-        driver.findElement(By.id("gh-ac")).sendKeys("java book");
+        driver.findElement(By.id("gh-ac")).sendKeys("Java Book");
+        Thread.sleep(2000);
         driver.findElement(By.id("gh-btn")).click();
+        Thread.sleep(2000);
         WebElement result = driver.findElement(By.tagName("h1"));
-     //   System.out.println(result.getText().split(" ")[0]);
         System.out.println(result.getText());
 
         driver.quit();
+
+
     }
 
     //go to amazon
@@ -39,16 +53,30 @@ public class March_4 {
 //click on search button
 //verify title contains search term
     public static void amazonTest(){
-        driver = DriverFactory.createDriver("Chrome");
-        driver.get("http://amazon.com");
-        driver.findElement(By.id("twotabsearchtextbox")).sendKeys("java book", Keys.ENTER);
-        String title = driver.getTitle();
-        if(title.contains("java book")){
-            System.out.println("test passed");
-        }else {
-            System.out.println("test failed");
-        }
+//        driver = DriverFactory.createDriver("Chrome");
+//        driver.get("http://amazon.com");
+//        driver.findElement(By.id("twotabsearchtextbox")).sendKeys("java book", Keys.ENTER);
+//        String title = driver.getTitle();
+//        if(title.contains("java book")){
+//            System.out.println("test passed");
+//        }else {
+//            System.out.println("test failed");
+//        }
+//        driver.quit();
+     WebDriverManager.chromedriver().version("79").setup();
+     WebDriver driver= new ChromeDriver();
+     driver.get("http://amazon.com");
+     driver.findElement(By.id("twotabsearchtextbox")).sendKeys("Java Book", Keys.ENTER);
+
+     String title = driver.getTitle();
+     if(title.contains("Java Book")){
+         System.out.println("test passed");
+     }else {
+         System.out.println("test failed");
+     }
         driver.quit();
+
+
     }
     //Go to wikipedia.org
 //enter search term `selenium webdriver`
@@ -74,6 +102,24 @@ public class March_4 {
             System.out.println("test failed");
         }
         driver.quit();
+
+
+//        WebDriverManager.chromedriver().version("79").setup();
+//        WebDriver driver = new ChromeDriver();
+//        driver.get("http://wikipedia.com");
+//        driver.findElement(By.id("searchInput")).sendKeys("Selenium (software)", Keys.ENTER);
+//        driver.findElement(By.partialLinkText("Selenium (software)")).click();
+//        String link = driver.getCurrentUrl();
+//        Thread.sleep(2000);
+//        if(link.endsWith("Selenium_(software)")){
+//            System.out.println("test passed");
+//        }else {
+//            System.out.println("test failed");
+//        }
+//        driver.quit();
+
+
+
 
 
 
