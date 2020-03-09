@@ -60,6 +60,11 @@ public class SelectByText {
             System.out.println("Test failed");
         }
 
+        List<WebElement> states = stateSelect.getOptions();
+        for (WebElement eachState : states){
+            System.out.println(eachState.getText());
+        }
+
 
 
 
