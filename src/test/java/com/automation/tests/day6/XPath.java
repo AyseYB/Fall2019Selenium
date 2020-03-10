@@ -19,6 +19,9 @@ public class XPath {
         WebElement btn1 = driver.findElement(By.xpath("//button[@onclick=\"button1()\"]"));
         btn1.click();
 
+        WebElement result = driver.findElement(By.id("result"));
+        System.out.println(result.getText());
+
 
         BrowserUtils.wait(3);
         driver.quit();
